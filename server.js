@@ -8,10 +8,12 @@ app.use(bodyParser.json());
 
 // Import Model
 const Post = require("./models/Post");
+const Teacher = require("./models/Teacher");
 
 // Connect to MongoDB
 mongoose.connect(
-  "mongodb://localhost:27017/simple-mern",
+  //"mongodb://localhost:27017/simple-mern",
+  "mongodb+srv://teacher:Qwazimoda99@cluster0.5ezvm.mongodb.net/school?retryWrites=true&w=majority",
   () => console.log("MongoDB is connected")
 );
 
@@ -28,6 +30,12 @@ app.use((req, res, next) => {
 // Get all of our posts
 app.get("/api/posts", (req, res) => {
   Post.find({}).then(posts => {
+    res.json(posts);
+  });
+});
+
+app.get("/api/teachers", (req, res) => {
+  Teacher.find({}).then(posts => {
     res.json(posts);
   });
 });

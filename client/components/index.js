@@ -11,7 +11,7 @@ class Index extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:3333/api/posts").then(posts => {
+    axios.get("http://localhost:3333/api/teachers").then(posts => {
       this.setState({
         posts: posts.data
       });
